@@ -1,0 +1,29 @@
+{
+    "name": "arrayextjs",
+    "version": "1.0.0",
+    "description": "Array extension library based on Linq",
+    "main": "arrayext.js",
+    "scripts": {
+        "start": "karma start",
+        "build": "webpack --config webpack/webpack.prod.js"
+    },
+    "author": "Roger Versluis",
+    "license": "MIT",
+    "repository": "https://github.com/farlock85/arrayextjs",
+    "devDependencies": {
+        "@types/jasmine": "^3.4.0",
+        "istanbul-instrumenter-loader": "^3.0.1",
+        "jasmine": "^3.4.0",
+        "karma": "^4.2.0",
+        "karma-chrome-launcher": "^3.1.0",
+        "karma-coverage-istanbul-reporter": "^2.1.0",
+        "karma-jasmine": "^2.0.1",
+        "karma-jasmine-html-reporter": "^1.4.2",
+        "karma-webpack": "^4.0.2",
+        "ts-loader": "^6.0.4",
+        "typescript": "^3.5.3",
+        "webpack": "^4.39.2",
+        "webpack-cli": "^3.3.7",
+        "webpack-merge": "^4.2.1"
+    }
+}

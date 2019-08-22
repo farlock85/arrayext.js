@@ -1,0 +1,29 @@
+import { Pet, Dog } from './_.spec';
+
+describe('removeAll', () => {
+    it('returns an array with the elements removed', () => {
+        const dinosaurs: string[] = [
+            'Compsognathus',
+            'Amargasaurus',
+            'Oviraptor',
+            'Velociraptor',
+            'Deinonychus',
+            'Dilophosaurus',
+            'Gallimimus',
+            'Triceratops'
+        ];
+
+        const lessDinosaurs = [
+            'Compsognathus',
+            'Oviraptor',
+            'Velociraptor',
+            'Deinonychus',
+            'Gallimimus',
+            'Triceratops'
+        ];
+
+        const result = dinosaurs.removeAll(x => x.endsWith('saurus'));
+
+        expect(result).toEqual(lessDinosaurs);
+    });
+});
