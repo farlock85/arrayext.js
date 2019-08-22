@@ -1,9 +1,9 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/app.ts',
+    entry: './src/index.ts',
     output: {
-        filename: 'arrayext.js'
+        filename: 'index.js'
     },
     resolve: {
         extensions: ['.js', '.ts', '.json']

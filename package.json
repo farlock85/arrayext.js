@@ -2,14 +2,21 @@
     "name": "arrayextjs",
     "version": "1.0.0",
     "description": "Array extension library based on Linq",
-    "main": "arrayext.js",
     "scripts": {
         "start": "karma start",
         "build": "webpack --config webpack/webpack.prod.js"
     },
+    "prepublishOnly": "npm test",
+    "prepare": "npm run build",
     "author": "Roger Versluis",
     "license": "MIT",
     "repository": "https://github.com/farlock85/arrayextjs",
+    "files": [
+        "dist/index.js",
+        "dist/index.d.ts"
+    ],
+    "main": "index.js",
+    "types": "tsOutputs/index.d.ts",
     "devDependencies": {
         "@types/jasmine": "^3.4.0",
         "istanbul-instrumenter-loader": "^3.0.1",
