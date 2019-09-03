@@ -1,6 +1,11 @@
-import { Pet, Dog } from './_.spec';
+import { Pet, Dog } from './_';
+import { curray } from '../../src/index';
 
 describe('distinct', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns an array with only distinct items in an array of objects', () => {
         const pets: Pet[] = [
             new Pet({ Age: 1, Name: 'Whiskers' }),

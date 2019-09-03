@@ -1,36 +1,119 @@
 {
-    "name": "arrayextjs",
-    "version": "1.0.0",
-    "description": "Array extension library based on Linq",
-    "scripts": {
-        "start": "karma start",
-        "build": "webpack --config webpack/webpack.prod.js"
-    },
-    "prepublishOnly": "npm test",
-    "prepare": "npm run build",
-    "author": "Roger Versluis",
-    "license": "MIT",
-    "repository": "https://github.com/farlock85/arrayextjs",
-    "files": [
-        "dist/index.js",
-        "dist/index.d.ts"
+    "name": "curray",
+    "version": "1.0.2",
+    "description": "Curray is an extension library for the native Array object.",
+    "keywords": [
+        "javascript",
+        "array",
+        "extensions"
     ],
-    "main": "index.js",
-    "types": "tsOutputs/index.d.ts",
+    "main": "dist/index.umd.js",
+    "module": "dist/index.es5.js",
+    "typings": "dist/types/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "author": "Roger Versluis <roger@versluis.ca>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rogerfar/curray"
+    },
+    "license": "MIT",
+    "engines": {
+        "node": ">=6.0.0"
+    },
+    "scripts": {
+        "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+        "prebuild": "rimraf dist",
+        "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
+        "start": "rollup -c rollup.config.ts -w",
+        "test": "jest --coverage",
+        "test:watch": "jest --coverage --watch",
+        "test:prod": "npm run lint && npm run test -- --no-cache",
+        "report-coverage": "cat ./coverage/lcov.info | coveralls",
+        "precommit": "lint-staged"
+    },
+    "lint-staged": {
+        "{src,test}/**/*.ts": [
+            "prettier --write",
+            "git add"
+        ]
+    },
+    "config": {
+        "commitizen": {
+            "path": "node_modules/cz-conventional-changelog"
+        }
+    },
+    "jest": {
+        "transform": {
+            ".(ts|tsx)": "ts-jest"
+        },
+        "testEnvironment": "node",
+        "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js"
+        ],
+        "coveragePathIgnorePatterns": [
+            "/node_modules/",
+            "/test/"
+        ],
+        "coverageThreshold": {
+            "global": {
+                "branches": 100,
+                "functions": 100,
+                "lines": 100,
+                "statements": 100
+            }
+        },
+        "collectCoverageFrom": [
+            "src/*.{js,ts}"
+        ]
+    },
+    "prettier": {
+        "semi": true,
+        "singleQuote": true
+    },
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-conventional"
+        ]
+    },
     "devDependencies": {
-        "@types/jasmine": "^3.4.0",
-        "istanbul-instrumenter-loader": "^3.0.1",
-        "jasmine": "^3.4.0",
-        "karma": "^4.2.0",
-        "karma-chrome-launcher": "^3.1.0",
-        "karma-coverage-istanbul-reporter": "^2.1.0",
-        "karma-jasmine": "^2.0.1",
-        "karma-jasmine-html-reporter": "^1.4.2",
-        "karma-webpack": "^4.0.2",
-        "ts-loader": "^6.0.4",
-        "typescript": "^3.5.3",
-        "webpack": "^4.39.2",
-        "webpack-cli": "^3.3.7",
-        "webpack-merge": "^4.2.1"
+        "@commitlint/cli": "^8.1.0",
+        "@commitlint/config-conventional": "^8.1.0",
+        "@types/jest": "^24.0.18",
+        "@types/node": "^12.7.3",
+        "colors": "^1.3.3",
+        "commitizen": "^4.0.3",
+        "coveralls": "^3.0.6",
+        "cross-env": "^5.2.1",
+        "cz-conventional-changelog": "^3.0.2",
+        "husky": "^3.0.5",
+        "jest": "^24.9.0",
+        "jest-config": "^24.9.0",
+        "lint-staged": "^9.2.5",
+        "lodash.camelcase": "^4.3.0",
+        "prettier": "^1.18.2",
+        "prompt": "^1.0.0",
+        "replace-in-file": "^4.1.3",
+        "rimraf": "^3.0.0",
+        "rollup": "^1.20.3",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-json": "^4.0.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-sourcemaps": "^0.4.2",
+        "rollup-plugin-typescript2": "^0.24.0",
+        "semantic-release": "^15.13.24",
+        "shelljs": "^0.8.3",
+        "travis-deploy-once": "^5.0.11",
+        "ts-jest": "^24.0.2",
+        "ts-node": "^8.3.0",
+        "tslint": "^5.19.0",
+        "tslint-config-prettier": "^1.18.0",
+        "tslint-config-standard": "^8.0.1",
+        "typedoc": "^0.15.0",
+        "typescript": "^3.6.2"
     }
 }

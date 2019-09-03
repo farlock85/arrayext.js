@@ -1,6 +1,11 @@
-import { Pet } from './_.spec';
+import { Pet } from './_';
+import { curray } from '../../src/index';
 
 describe('any ', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns true when any element of the array satisfies the condition', () => {
         const pets: Pet[] = [
             new Pet({ Age: 8, Name: 'Barley', Vaccinated: true }),

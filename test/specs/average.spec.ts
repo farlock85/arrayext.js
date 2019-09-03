@@ -1,6 +1,11 @@
-import { Person } from './_.spec';
+import { Person } from './_';
+import { curray } from '../../src/index';
 
 describe('average ', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('averages the numbers of a predicate', () => {
         const people: Person[] = [
             { Age: 15, Name: 'Cathy' },

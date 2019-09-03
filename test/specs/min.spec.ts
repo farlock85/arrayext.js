@@ -1,6 +1,11 @@
-import { Pet, Dog, Person } from './_.spec';
+import { Pet, Dog, Person } from './_';
+import { curray } from '../../src/index';
 
 describe('min', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns the smallest number of an array with a predicate', () => {
         const people: Person[] = [
             { Age: 15, Name: 'Cathy' },

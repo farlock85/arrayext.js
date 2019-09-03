@@ -1,6 +1,11 @@
-import { Pet, Dog } from './_.spec';
+import { Pet, Dog } from './_';
+import { curray } from '../../src/index';
 
 describe('removeAll', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns an array with the elements removed', () => {
         const dinosaurs: string[] = [
             'Compsognathus',

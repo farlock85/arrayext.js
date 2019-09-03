@@ -1,6 +1,10 @@
-import { Pet, Dog } from './_.spec';
+import { curray } from '../../src/index';
 
 describe('skipWhile', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns the first element in an array', () => {
         const grades: number[] = [98, 92, 85, 82, 70, 59, 56];
         const expected: number[] = [70, 59, 56];

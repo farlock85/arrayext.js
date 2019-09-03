@@ -1,6 +1,11 @@
-import { Pet, Dog } from './_.spec';
+import { Pet, Dog } from './_';
+import { curray } from '../../src/index';
 
 describe('groupBy', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns a grouped result based on the predicate', () => {
         const pets: Pet[] = [
             new Pet({ Age: 8, Name: 'Barley' }),

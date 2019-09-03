@@ -1,6 +1,11 @@
-import { Pet, Dog, PetOwner } from './_.spec';
+import { Pet, Dog, PetOwner } from './_';
+import { curray } from '../../src/index';
 
 describe('selectMany', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns an array with the projected predicate', () => {
         const petOwners: PetOwner[] = [
             new PetOwner('Higa, Sidney', [

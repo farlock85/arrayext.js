@@ -1,6 +1,11 @@
-import { Pet, Dog } from './_.spec';
+import { Pet, Dog } from './_';
+import { curray } from '../../src/index';
 
 describe('defaultIfEmpty ', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns the array if the array is not empty', () => {
         const pets: Pet[] = [
             new Pet({ Age: 8, Name: 'Barley' }),

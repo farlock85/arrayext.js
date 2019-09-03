@@ -1,6 +1,11 @@
+import { curray } from '../../src/index';
 import { isObj, equal } from '../../src/helpers';
 
 describe('Helpers ', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     describe('isObj', () => {
         it('returns true when the passed argument is an object', () => {
             const realObject = {};
@@ -33,6 +38,28 @@ describe('Helpers ', () => {
             };
             const target = {
                 a: 2
+            };
+            const result = equal(source, target);
+            expect(result).toBe(false);
+        });
+
+        it('returns true when an object is equal', () => {
+            const source = {
+                a: { test: true }
+            };
+            const target = {
+                a: { test: true }
+            };
+            const result = equal(source, target);
+            expect(result).toBe(true);
+        });
+
+        it('returns false when an object is not equal', () => {
+            const source = {
+                a: { test: true }
+            };
+            const target = {
+                a: { test: false }
             };
             const result = equal(source, target);
             expect(result).toBe(false);
