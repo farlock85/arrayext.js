@@ -1,6 +1,11 @@
-import { Pet, Dog } from './_.spec';
+import { Pet, Dog } from './_';
+import { curray } from '../../src/index';
 
 describe('count ', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns the amount of numbers in a plain array', () => {
         const fruits: string[] = [
             'apple',

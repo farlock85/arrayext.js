@@ -1,6 +1,11 @@
-import { Person } from './_.spec';
+import { Person } from './_';
+import { curray } from '../../src/index';
 
 describe('sum', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('sums the numbers of a predicate', () => {
         const people: Person[] = [
             { Age: 15, Name: 'Cathy' },

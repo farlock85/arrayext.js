@@ -1,6 +1,11 @@
-import { Pet, Person } from './_.spec';
+import { Pet, Person } from './_';
+import { curray } from '../../src/index';
 
 describe('groupJoin', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns an array of group joined elements', () => {
         const magnus = new Person({ Name: 'Hedlund, Magnus' });
         const terry = new Person({ Name: 'Adams, Terry' });

@@ -1,6 +1,11 @@
-import { Pet, Dog, Person } from './_.spec';
+import { Pet, Dog, Person } from './_';
+import { curray } from '../../src/index';
 
 describe('max', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns the largest number in an array', () => {
         const people: Person[] = [
             { Age: 15, Name: 'Cathy' },

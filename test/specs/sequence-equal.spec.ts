@@ -1,6 +1,11 @@
-import { Pet, Dog } from './_.spec';
+import { Pet, Dog } from './_';
+import { curray } from '../../src/index';
 
 describe('sequenceEqual', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns true when a sequence matches the given array', () => {
         const pet1 = new Pet({ Age: 2, Name: 'Turbo' });
         const pet2 = new Pet({ Age: 8, Name: 'Peanut' });

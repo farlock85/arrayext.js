@@ -1,6 +1,10 @@
-import { Pet, Dog } from './_.spec';
+import { curray } from '../../src/index';
 
 describe('where', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns the elements of an array filtered based on a predicate', () => {
         const fruits = [
             'apple',

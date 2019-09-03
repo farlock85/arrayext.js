@@ -10,22 +10,19 @@ export const isObj = <T>(x: T): boolean => !!x && typeof x === 'object';
  * @param b The object to compare to
  */
 export const equal = <T, U>(a: T, b: U): boolean =>
-    Object.entries(a).every(([key, val]) =>
-        isObj(val) ? equal(b[key], val) : b[key] === val
-    );
+    Object.entries(a).every(([key, val]) => (isObj(val) ? equal(b[key], val) : b[key] === val));
 
 /**
  * Creates a function that negates the result of the predicate
  */
-export const negate = <T>(
-    predicate: (value?: T, index?: number, list?: T[]) => boolean
-): any => (...args: any) => !predicate(...args);
+export const negate = <T>(predicate: (value?: T, index?: number, list?: T[]) => boolean): any => (
+    ...args: any
+) => !predicate(...args);
 
 export const composeComparers = <T>(
     previousComparer: (a: T, b: T) => number,
     currentComparer: (a: T, b: T) => number
-): ((a: T, b: T) => number) => (a: T, b: T) =>
-    previousComparer(a, b) || currentComparer(a, b);
+): ((a: T, b: T) => number) => (a: T, b: T) => previousComparer(a, b) || currentComparer(a, b);
 
 export const keyComparer = <T>(
     keySelector: (key: T) => any,
@@ -49,8 +46,10 @@ export const keyComparer = <T>(
  * calling its ToDictionary, ToLookup, ToList or ToArray methods
  */
 export class OrderedArray<T> extends Array<T> {
+    /* istanbul ignore next */
     constructor(elements: T[], private _comparer: (a: T, b: T) => number) {
         super(...elements);
+        Object.setPrototypeOf(this, OrderedArray.prototype);
         this.sort(this._comparer);
     }
 

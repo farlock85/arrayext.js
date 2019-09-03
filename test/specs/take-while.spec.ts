@@ -1,6 +1,10 @@
-import { Pet, Dog } from './_.spec';
+import { curray } from '../../src/index';
 
 describe('takeWhile', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns the first element in an array', () => {
         const fruits: string[] = [
             'apple',

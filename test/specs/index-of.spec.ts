@@ -1,6 +1,11 @@
-import { Pet, Dog } from './_.spec';
+import { Pet, Dog } from './_';
+import { curray } from '../../src/index';
 
 describe('indexOf ', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns the position of the element in the array of primitives', () => {
         const fruits: string[] = [
             'apple',

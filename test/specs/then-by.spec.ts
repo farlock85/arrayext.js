@@ -1,6 +1,10 @@
-import { Pet, Dog, Person } from './_.spec';
+import { curray } from '../../src/index';
 
 describe('thenBy', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns a sorted array by a predicate', () => {
         const fruits: string[] = [
             'grape',
@@ -26,7 +30,7 @@ describe('thenBy', () => {
             'passionfruit'
         ];
 
-        var results = fruits.orderBy(m => m.length).thenBy(m => m);
+        let results = fruits.orderBy(m => m.length).thenBy(m => m);
 
         expect(results[0]).toBe(expected[0]);
         expect(results[1]).toBe(expected[1]);

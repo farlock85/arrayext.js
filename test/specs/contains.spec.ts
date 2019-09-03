@@ -1,6 +1,11 @@
-import { Pet, Dog } from './_.spec';
+import { Pet, Dog } from './_';
+import { curray } from '../../src/index';
 
 describe('contains ', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns true when an element is contained in an array', () => {
         const fruits: string[] = [
             'apple',

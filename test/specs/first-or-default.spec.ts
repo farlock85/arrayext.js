@@ -1,6 +1,11 @@
-import { Pet, Dog } from './_.spec';
+import { Pet, Dog } from './_';
+import { curray } from '../../src/index';
 
 describe('firstOrDefault', () => {
+    beforeEach(() => {
+        curray();
+    });
+
     it('returns the first element in an array', () => {
         const list: string[] = ['hey', 'hola', 'que', 'tal'];
 
