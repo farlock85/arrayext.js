@@ -14,9 +14,14 @@ npm i --save curray
 
 Alternatively you can download the package from the Releases page.
 
-## Usage
+This library doesn't have any exported members so you either need to include the appropriate file from `/dist` manually, or add a fake import to your application somewhere to trick your bundler to include it:
 
-Because this library has no imports you will need to manually include the file in your webpack, Angular or header of your site.
+```js
+import { curray } from 'curray';
+...
+curray();
+```
+This function doesn't actually do anything.
 
 ## Tests
 
