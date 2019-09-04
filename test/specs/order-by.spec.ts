@@ -39,4 +39,21 @@ describe('orderBy', () => {
         expect(result[1]).toEqual(expected[1]);
         expect(result[2]).toEqual(expected[2]);
     });
+
+    it('should support chaining of orderBy with other native array functions', () => {
+        const people: Person[] = [
+            { Age: 25, Name: 'Alice' },
+            { Age: 15, Name: 'Cathy' },
+            { Age: 50, Name: 'Bob' }
+        ];
+
+        const expected: Person[] = [
+            { Age: 15, Name: 'Cathy' },
+            { Age: 25, Name: 'Alice' }
+        ];
+
+        const result = people.orderBy(m => m.Age).toArray().where(m => m.Age < 50);
+
+        expect(result[0]).toEqual(expected[0]);
+    });
 });
