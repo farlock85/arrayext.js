@@ -1,6 +1,6 @@
 {
     "name": "curray",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Curray is an extension library for the native Array object.",
     "keywords": [
         "javascript",

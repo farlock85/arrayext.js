@@ -74,4 +74,13 @@ export class OrderedArray<T> extends Array<T> {
             composeComparers(this._comparer, keyComparer(keySelector, true))
         );
     }
+
+    /**
+     * Converts the OrderedList back to an array to be able to chain other actions to.
+     */
+    public toArray(): T[] {
+        let returnArray = new Array();
+        returnArray.addRange(this);
+        return returnArray;
+    }
 }
