@@ -46,6 +46,10 @@ export const keyComparer = <T>(
  * calling its ToDictionary, ToLookup, ToList or ToArray methods
  */
 export class OrderedArray<T> extends Array<T> {
+    static get [Symbol.species]() {
+        return Array;
+    }
+
     /* istanbul ignore next */
     constructor(elements: T[], private _comparer: (a: T, b: T) => number) {
         super(...elements);
@@ -73,14 +77,5 @@ export class OrderedArray<T> extends Array<T> {
             this,
             composeComparers(this._comparer, keyComparer(keySelector, true))
         );
-    }
-
-    /**
-     * Converts the OrderedList back to an array to be able to chain other actions to.
-     */
-    public toArray(): T[] {
-        let returnArray = new Array();
-        returnArray.addRange(this);
-        return returnArray;
     }
 }

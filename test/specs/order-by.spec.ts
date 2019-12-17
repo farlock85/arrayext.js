@@ -47,12 +47,9 @@ describe('orderBy', () => {
             { Age: 50, Name: 'Bob' }
         ];
 
-        const expected: Person[] = [
-            { Age: 15, Name: 'Cathy' },
-            { Age: 25, Name: 'Alice' }
-        ];
+        const expected: Person[] = [{ Age: 15, Name: 'Cathy' }, { Age: 25, Name: 'Alice' }];
 
-        const result = people.orderBy(m => m.Age).toArray().where(m => m.Age < 50);
+        const result = people.orderBy(m => m.Age).where(m => m.Age < 50);
 
         expect(result[0]).toEqual(expected[0]);
     });
