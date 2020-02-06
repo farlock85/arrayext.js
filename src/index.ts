@@ -1,4 +1,4 @@
-import { OrderedArray, equal, isObj, keyComparer, negate } from './helpers';
+import { OrderedArray, equal, isObj, keyComparer, negate } from "./helpers";
 
 export const curray = () => null;
 
@@ -30,16 +30,8 @@ declare global {
         firstOrDefault(): T;
         firstOrDefault(predicate: (value?: T, index?: number, list?: T[]) => boolean): T;
         firstOrDefault(predicate?: (value?: T, index?: number, list?: T[]) => boolean): T;
-        groupBy<TResult = T>(
-            grouper: (key: T) => string | number,
-            mapper?: (element: T) => TResult,
-        ): { [key: string]: TResult[] };
-        groupJoin<U>(
-            list: U[],
-            key1: (k: T) => any,
-            key2: (k: U) => any,
-            result: (first: T, second: U[]) => any,
-        ): any[];
+        groupBy<TResult = T>(grouper: (key: T) => string | number, mapper?: (element: T) => TResult): { [key: string]: TResult[] };
+        groupJoin<U>(list: U[], key1: (k: T) => any, key2: (k: U) => any, result: (first: T, second: U[]) => any): any[];
         indexOf(element: T): number;
         insert(index: number, element: T): void | Error;
         intersect(source: T[]): T[];
@@ -87,10 +79,7 @@ Array.prototype.addRange = function<T>(elements: T[]): void {
 /**
  * Applies an accumulator function over a sequence.
  */
-Array.prototype.aggregate = function<U, T>(
-    accumulator: (accum: U, value?: T, index?: number, list?: T[]) => any,
-    initialValue?: U,
-): any {
+Array.prototype.aggregate = function<U, T>(accumulator: (accum: U, value?: T, index?: number, list?: T[]) => any, initialValue?: U): any {
     return this.reduce(accumulator, initialValue);
 };
 
@@ -156,8 +145,8 @@ Array.prototype.distinct = function<T>(): T[] {
             iter: {
                 findIndex: (arg0: (obj: any) => boolean) => void;
                 indexOf: (arg0: any) => void;
-            },
-        ) => (isObj(value) ? iter.findIndex((obj: any) => equal(obj, value)) : iter.indexOf(value)) === index,
+            }
+        ) => (isObj(value) ? iter.findIndex((obj: any) => equal(obj, value)) : iter.indexOf(value)) === index
     );
 };
 
@@ -179,9 +168,7 @@ Array.prototype.elementAt = function<T>(index: number): T {
     if (index < this.count() && index >= 0) {
         return this[index];
     } else {
-        throw new Error(
-            'ArgumentOutOfRangeException: index is less than 0 or greater than or equal to the number of elements in source.',
-        );
+        throw new Error("ArgumentOutOfRangeException: index is less than 0 or greater than or equal to the number of elements in source.");
     }
 };
 
@@ -206,7 +193,7 @@ Array.prototype.first = function<T>(predicate?: (value?: T, index?: number, list
     if (this.count()) {
         return predicate ? this.where(predicate).first() : this[0];
     } else {
-        throw new Error('InvalidOperationException: The source sequence is empty.');
+        throw new Error("InvalidOperationException: The source sequence is empty.");
     }
 };
 
@@ -220,10 +207,7 @@ Array.prototype.firstOrDefault = function<T>(predicate?: (value?: T, index?: num
 /**
  * Groups the elements of a sequence according to a specified key selector function.
  */
-Array.prototype.groupBy = function<T, TResult>(
-    grouper: (key: T) => string | number,
-    mapper?: (element: T) => TResult,
-): { [key: string]: TResult[] } {
+Array.prototype.groupBy = function<T, TResult>(grouper: (key: T) => string | number, mapper?: (element: T) => TResult): { [key: string]: TResult[] } {
     const initialValue: { [key: string]: TResult[] } = {};
     if (!mapper) {
         mapper = val => (val as any) as TResult;
@@ -245,17 +229,12 @@ Array.prototype.groupBy = function<T, TResult>(
  * Correlates the elements of two sequences based on equality of keys and groups the results.
  * The default equality comparer is used to compare keys.
  */
-Array.prototype.groupJoin = function<T, U>(
-    list: U[],
-    key1: (k: T) => any,
-    key2: (k: U) => any,
-    result: (first: T, second: U[]) => any,
-): any[] {
+Array.prototype.groupJoin = function<T, U>(list: U[], key1: (k: T) => any, key2: (k: U) => any, result: (first: T, second: U[]) => any): any[] {
     return this.select((x: T) =>
         result(
             x,
-            list.where(z => key1(x) === key2(z)),
-        ),
+            list.where(z => key1(x) === key2(z))
+        )
     );
 };
 
@@ -273,7 +252,7 @@ Array.prototype.last = function<T>(predicate?: (value?: T, index?: number, list?
     if (this.count()) {
         return predicate ? this.where(predicate).last() : this[this.count() - 1];
     } else {
-        throw Error('InvalidOperationException: The source sequence is empty.');
+        throw Error("InvalidOperationException: The source sequence is empty.");
     }
 };
 
@@ -307,24 +286,22 @@ Array.prototype.ofType = function<U>(type: any): U[] {
     let typeName: string;
     switch (type) {
         case Number:
-            typeName = 'number';
+            typeName = "number";
             break;
         case String:
-            typeName = 'string';
+            typeName = "string";
             break;
         case Boolean:
-            typeName = 'boolean';
+            typeName = "boolean";
             break;
         case Function:
-            typeName = 'function';
+            typeName = "function";
             break;
         default:
             typeName = null;
             break;
     }
-    return typeName === null
-        ? (this.where((x: any) => x instanceof type) as U[]).cast<U>()
-        : (this.where((x: any) => typeof x === typeName) as U[]).cast<U>();
+    return typeName === null ? (this.where((x: any) => x instanceof type) as U[]).cast<U>() : (this.where((x: any) => typeof x === typeName) as U[]).cast<U>();
 };
 
 /**
@@ -359,12 +336,7 @@ Array.prototype.select = function<T, TOut>(selector: (element: T, index: number)
  * Projects each element of a sequence to a Array<any> and flattens the resulting sequences into one sequence.
  */
 Array.prototype.selectMany = function<T, TOut extends any[]>(selector: (element: T, index: number) => TOut): TOut {
-    return this.aggregate(
-        (ac: { addRange: (arg0: any) => void }, _: any, i: any) => (
-            ac.addRange(this.select(selector).elementAt(i)), ac
-        ),
-        new Array<TOut>(),
-    );
+    return this.aggregate((ac: { addRange: (arg0: any) => void }, _: any, i: any) => (ac.addRange(this.select(selector).elementAt(i)), ac), new Array<TOut>());
 };
 
 /**
@@ -379,7 +351,7 @@ Array.prototype.sequenceEqual = function<T>(list: T[]): boolean {
  */
 Array.prototype.single = function<T>(predicate?: (value?: T, index?: number, list?: T[]) => boolean): T {
     if (this.count(predicate) !== 1) {
-        throw new Error('InvalidOperationException: The collection does not contain exactly one element.');
+        throw new Error("InvalidOperationException: The collection does not contain exactly one element.");
     } else {
         return this.first(predicate);
     }
@@ -447,7 +419,5 @@ Array.prototype.where = function<T>(predicate: (value?: T, index?: number, list?
  * Applies a specified function to the corresponding elements of two sequences, producing a sequence of the results.
  */
 Array.prototype.zip = function<U, T, TOut>(list: U[], result: (first: T, second: U) => TOut): TOut[] {
-    return list.count() < this.count()
-        ? list.select((x, y) => result(this.elementAt(y), x))
-        : this.select((x: T, y: number) => result(x, list.elementAt(y)));
+    return list.count() < this.count() ? list.select((x, y) => result(this.elementAt(y), x)) : this.select((x: T, y: number) => result(x, list.elementAt(y)));
 };

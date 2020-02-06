@@ -13,7 +13,7 @@
         "build": "npm run build:lib & npm run build:umd",
         "build:lib": "tsc --outDir lib --module commonjs",
         "build:es": "tsc --outDir es --module es2015",
-        "build:umd": "npm run build:es && rollup --config && dts-bundle --name dist/bundle --main es --outputAsModuleFolder",
+        "build:umd": "npm run build:es && rollup --config && dts-bundle --name curray --main es --out dist/bundle.d.ts",
         "clean": "rimraf dist es lib coverage",
         "typecheck": "tsc --noEmit",
         "lint": "tslint --project tsconfig.json --format stylish",
