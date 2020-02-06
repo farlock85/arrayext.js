@@ -10,9 +10,9 @@ describe('all ', () => {
         const pets: Pet[] = [
             new Pet({ Age: 10, Name: 'Barley' }),
             new Pet({ Age: 4, Name: 'Boots' }),
-            new Pet({ Age: 6, Name: 'Bingo' })
+            new Pet({ Age: 6, Name: 'Bingo' }),
         ];
-        let results = pets.all(pet => pet.Name.startsWith('B'));
+        const results = pets.all(pet => pet.Name.startsWith('B'));
         expect(results).toBeTruthy();
     });
 
@@ -20,9 +20,9 @@ describe('all ', () => {
         const pets: Pet[] = [
             new Pet({ Age: 10, Name: 'Barley' }),
             new Pet({ Age: 4, Name: 'Boots' }),
-            new Pet({ Age: 6, Name: 'Whiskers' })
+            new Pet({ Age: 6, Name: 'Whiskers' }),
         ];
-        let results = pets.all(pet => pet.Name.startsWith('B'));
+        const results = pets.all(pet => pet.Name.startsWith('B'));
         expect(results).toBeFalsy();
     });
 });

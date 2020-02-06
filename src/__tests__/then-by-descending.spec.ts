@@ -14,23 +14,14 @@ describe('thenByDescending', () => {
             'orange',
             'raspberry',
             'apple',
-            'blueberry'
+            'blueberry',
         ];
 
         // sort the strings first by their length and then
         // alphabetically by passing the identity selector function.
-        const expected = [
-            'mango',
-            'grape',
-            'apple',
-            'orange',
-            'banana',
-            'raspberry',
-            'blueberry',
-            'passionfruit'
-        ];
+        const expected = ['mango', 'grape', 'apple', 'orange', 'banana', 'raspberry', 'blueberry', 'passionfruit'];
 
-        let results = fruits.orderBy(m => m.length).thenByDescending(m => m);
+        const results = fruits.orderBy(m => m.length).thenByDescending(m => m);
 
         expect(results[0]).toBe(expected[0]);
         expect(results[1]).toBe(expected[1]);

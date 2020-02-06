@@ -11,7 +11,7 @@ describe('union', () => {
 
         const expected = [5, 3, 9, 7, 8, 6, 4, 1, 0];
 
-        let results = ints1.union(ints2);
+        const results = ints1.union(ints2);
 
         expect(results).toEqual(expected);
     });
