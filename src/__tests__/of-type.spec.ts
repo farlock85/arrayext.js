@@ -13,10 +13,10 @@ describe('ofType', () => {
             13,
             true,
             () => {
-                console.log('test');
+                return 0;
             },
             new Dog({ Age: 8, Name: 'Barley', Vaccinated: true }),
-            new Pet({ Age: 1, Name: 'Whiskers', Vaccinated: false })
+            new Pet({ Age: 1, Name: 'Whiskers', Vaccinated: false }),
         ];
 
         const dogs = anyArray.ofType<Dog>(Dog);
