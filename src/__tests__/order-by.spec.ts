@@ -47,7 +47,10 @@ describe('orderBy', () => {
             { Age: 50, Name: 'Bob' }
         ];
 
-        const expected: Person[] = [{ Age: 15, Name: 'Cathy' }, { Age: 25, Name: 'Alice' }];
+        const expected: Person[] = [
+            { Age: 15, Name: 'Cathy' },
+            { Age: 25, Name: 'Alice' }
+        ];
 
         const result = people.orderBy(m => m.Age).where(m => m.Age < 50);
 

@@ -11,7 +11,7 @@ interface IPerson {
 
 interface IPet {
     Name: string;
-    Age?: number;
+    Age: number;
     Owner?: Person;
     Vaccinated?: boolean;
 }
@@ -46,8 +46,8 @@ export class Person implements IPerson {
 export class Pet implements IPet {
     public Name: string;
     public Age: number;
-    public Owner: Person;
-    public Vaccinated: boolean;
+    public Owner?: Person;
+    public Vaccinated?: boolean;
 
     constructor(pet: IPet) {
         this.Name = pet.Name;

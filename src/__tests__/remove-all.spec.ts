@@ -1,4 +1,3 @@
-import { Pet, Dog } from './_';
 import { curray } from '../../src/index';
 
 describe('removeAll', () => {

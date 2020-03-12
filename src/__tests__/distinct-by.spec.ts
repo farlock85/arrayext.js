@@ -1,4 +1,4 @@
-import { Pet, Dog } from './_';
+import { Pet } from './_';
 import { curray } from '../../src/index';
 
 describe('returns an array with only distinct items in an array by a predicate', () => {

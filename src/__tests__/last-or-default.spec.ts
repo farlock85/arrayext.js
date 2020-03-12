@@ -1,4 +1,4 @@
-import { Pet, Dog } from './_';
+import { Pet } from './_';
 import { curray } from '../../src/index';
 
 describe('lastOrDefault', () => {

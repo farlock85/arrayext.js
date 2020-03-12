@@ -13,7 +13,15 @@
         "inlineSources": true,
         "esModuleInterop": true,
         "resolveJsonModule": true,
-        "strict": false
+        "strict": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "strictPropertyInitialization": true,
+        "strictBindCallApply": true,
+        "strictFunctionTypes": true,
+        "noFallthroughCasesInSwitch": true,
+        "strictNullChecks": true
     },
     "exclude": ["node_modules", "dist", "es", "lib"]
 }

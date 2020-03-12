@@ -1,5 +1,5 @@
-import { Pet } from './_';
 import { curray } from '../../src/index';
+import { Pet } from './_';
 
 describe('all ', () => {
     beforeEach(() => {
@@ -10,7 +10,7 @@ describe('all ', () => {
         const pets: Pet[] = [
             new Pet({ Age: 10, Name: 'Barley' }),
             new Pet({ Age: 4, Name: 'Boots' }),
-            new Pet({ Age: 6, Name: 'Bingo' }),
+            new Pet({ Age: 6, Name: 'Bingo' })
         ];
         const results = pets.all(pet => pet.Name.startsWith('B'));
         expect(results).toBeTruthy();
@@ -20,7 +20,7 @@ describe('all ', () => {
         const pets: Pet[] = [
             new Pet({ Age: 10, Name: 'Barley' }),
             new Pet({ Age: 4, Name: 'Boots' }),
-            new Pet({ Age: 6, Name: 'Whiskers' }),
+            new Pet({ Age: 6, Name: 'Whiskers' })
         ];
         const results = pets.all(pet => pet.Name.startsWith('B'));
         expect(results).toBeFalsy();

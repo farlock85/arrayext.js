@@ -1,4 +1,3 @@
-import { Pet, Dog } from './_';
 import { curray } from '../../src/index';
 
 describe('count ', () => {
@@ -7,14 +6,7 @@ describe('count ', () => {
     });
 
     it('returns the amount of numbers in a plain array', () => {
-        const fruits: string[] = [
-            'apple',
-            'banana',
-            'mango',
-            'orange',
-            'passionfruit',
-            'grape'
-        ];
+        const fruits: string[] = ['apple', 'banana', 'mango', 'orange', 'passionfruit', 'grape'];
 
         const results = fruits.count();
 
@@ -22,14 +14,7 @@ describe('count ', () => {
     });
 
     it('returns the amount of numbers in an array with a predicate', () => {
-        const fruits: string[] = [
-            'apple',
-            'banana',
-            'mango',
-            'orange',
-            'passionfruit',
-            'grape'
-        ];
+        const fruits: string[] = ['apple', 'banana', 'mango', 'orange', 'passionfruit', 'grape'];
 
         const results = fruits.count(m => m.length > 5);
 
