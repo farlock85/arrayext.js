@@ -7,14 +7,14 @@ describe('groupJoin', () => {
     });
 
     it('returns an array of group joined elements', () => {
-        const magnus = new Person({ Name: 'Hedlund, Magnus' });
-        const terry = new Person({ Name: 'Adams, Terry' });
-        const charlotte = new Person({ Name: 'Weiss, Charlotte' });
+        const magnus = new Person({ Name: 'Hedlund, Magnus', Age: 1 });
+        const terry = new Person({ Name: 'Adams, Terry', Age: 1 });
+        const charlotte = new Person({ Name: 'Weiss, Charlotte', Age: 1 });
 
-        const barley = new Pet({ Name: 'Barley', Owner: terry });
-        const boots = new Pet({ Name: 'Boots', Owner: terry });
-        const whiskers = new Pet({ Name: 'Whiskers', Owner: charlotte });
-        const daisy = new Pet({ Name: 'Daisy', Owner: magnus });
+        const barley = new Pet({ Name: 'Barley', Owner: terry, Age: 1 });
+        const boots = new Pet({ Name: 'Boots', Owner: terry, Age: 1 });
+        const whiskers = new Pet({ Name: 'Whiskers', Owner: charlotte, Age: 1 });
+        const daisy = new Pet({ Name: 'Daisy', Owner: magnus, Age: 1 });
 
         const people: Person[] = [magnus, terry, charlotte];
         const pets: Pet[] = [barley, boots, whiskers, daisy];

@@ -1,6 +1,6 @@
 {
     "name": "curray",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "Curray is an extension library for the native Array object.",
     "author": "Roger Far <roger@versluis.ca>",
     "license": "MIT",

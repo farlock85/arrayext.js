@@ -1,4 +1,4 @@
-import { Pet, Dog, Person } from './_';
+import { Person } from './_';
 import { curray } from '../../src/index';
 
 describe('max', () => {

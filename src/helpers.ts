@@ -5,28 +5,23 @@
 export const isObj = <T>(x: T): boolean => !!x && typeof x === 'object';
 
 /**
- * Compare if 2 objects are equal based on the keys of the object
- * @param a The source object
- * @param b The object to compare to
- */
-export const equal = <T, U>(a: T, b: U): boolean =>
-    Object.entries(a).every(([key, val]) => (isObj(val) ? equal(b[key], val) : b[key] === val));
-
-/**
  * Creates a function that negates the result of the predicate
  */
-export const negate = <T>(predicate: (value?: T, index?: number, list?: T[]) => boolean): any => (...args: any) =>
-    !predicate(...args);
+export const negate = <T>(predicate: (value: T, index?: number, list?: T[]) => boolean): any => (
+    value: T,
+    index?: number,
+    list?: T[]
+) => !predicate(value, index, list);
 
 export const composeComparers = <T>(
     previousComparer: (a: T, b: T) => number,
-    currentComparer: (a: T, b: T) => number,
+    currentComparer: (a: T, b: T) => number
 ): ((a: T, b: T) => number) => (a: T, b: T) => previousComparer(a, b) || currentComparer(a, b);
 
-export const keyComparer = <T>(keySelector: (key: T) => any, descending?: boolean): ((a: T, b: T) => number) => (
-    a: T,
-    b: T,
-) => {
+export const keyComparer = <T>(
+    keySelector: (key: T) => any,
+    descending?: boolean
+): ((a: T, b: T) => number) => (a: T, b: T) => {
     const sortKeyA = keySelector(a);
     const sortKeyB = keySelector(b);
     if (sortKeyA > sortKeyB) {
@@ -61,7 +56,10 @@ export class OrderedArray<T> extends Array<T> {
      * @override
      */
     thenBy(keySelector: (key: T) => any): OrderedArray<T> {
-        return new OrderedArray(this, composeComparers(this._comparer, keyComparer(keySelector, false)));
+        return new OrderedArray(
+            this,
+            composeComparers(this._comparer, keyComparer(keySelector, false))
+        );
     }
 
     /**
@@ -69,6 +67,9 @@ export class OrderedArray<T> extends Array<T> {
      * @override
      */
     thenByDescending(keySelector: (key: T) => any): OrderedArray<T> {
-        return new OrderedArray(this, composeComparers(this._comparer, keyComparer(keySelector, true)));
+        return new OrderedArray(
+            this,
+            composeComparers(this._comparer, keyComparer(keySelector, true))
+        );
     }
 }

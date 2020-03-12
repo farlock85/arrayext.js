@@ -1,4 +1,4 @@
-import { Pet, Dog } from './_';
+import { Pet } from './_';
 import { curray } from '../../src/index';
 
 describe('indexOf ', () => {
@@ -7,14 +7,7 @@ describe('indexOf ', () => {
     });
 
     it('returns the position of the element in the array of primitives', () => {
-        const fruits: string[] = [
-            'apple',
-            'banana',
-            'mango',
-            'orange',
-            'passionfruit',
-            'grape'
-        ];
+        const fruits: string[] = ['apple', 'banana', 'mango', 'orange', 'passionfruit', 'grape'];
 
         const result = fruits.indexOf('orange');
 
@@ -22,14 +15,7 @@ describe('indexOf ', () => {
     });
 
     it('returns -1 when the element in an array is not found', () => {
-        const fruits: string[] = [
-            'apple',
-            'banana',
-            'mango',
-            'orange',
-            'passionfruit',
-            'grape'
-        ];
+        const fruits: string[] = ['apple', 'banana', 'mango', 'orange', 'passionfruit', 'grape'];
 
         const result = fruits.indexOf('strawberry');
 

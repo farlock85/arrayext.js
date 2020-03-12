@@ -1,4 +1,4 @@
-import { Pet, Dog } from './_';
+import { Pet } from './_';
 import { curray } from '../../src/index';
 
 describe('groupBy', () => {
@@ -16,10 +16,7 @@ describe('groupBy', () => {
 
         const result = {
             '1': [new Pet({ Age: 1, Name: 'Whiskers' })],
-            '4': [
-                new Pet({ Age: 4, Name: 'Boots' }),
-                new Pet({ Age: 4, Name: 'Daisy' })
-            ],
+            '4': [new Pet({ Age: 4, Name: 'Boots' }), new Pet({ Age: 4, Name: 'Daisy' })],
             '8': [new Pet({ Age: 8, Name: 'Barley' })]
         };
 
@@ -42,7 +39,10 @@ describe('groupBy', () => {
             '8': ['Barley']
         };
 
-        const results = pets.groupBy(m => m.Age, m => m.Name);
+        const results = pets.groupBy(
+            m => m.Age,
+            m => m.Name
+        );
 
         expect(results).toEqual(result);
     });
