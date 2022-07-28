@@ -27,6 +27,6 @@ describe('ofType', () => {
         expect(anyArray.ofType(Function).length).toBe(1);
         expect(anyArray.ofType(Dog).length).toBe(1);
         expect(anyArray.ofType(Pet).length).toBe(2);
-        expect(dogs[0].Speak()).toBe('Bark');
+        expect(dogs[0]!.Speak()).toBe('Bark');
     });
 });

@@ -24,11 +24,11 @@ describe('groupJoin', () => {
         // a collection of names of the pets they own.
         const query = people.groupJoin(
             pets,
-            person => person,
-            pet => pet.Owner,
+            (person) => person,
+            (pet) => pet.Owner,
             (person, petCollection) => ({
                 OwnerName: person.Name,
-                Pets: petCollection.select(pet => pet.Name)
+                Pets: petCollection.select((pet) => pet.Name)
             })
         );
         const expected = [
@@ -37,7 +37,7 @@ describe('groupJoin', () => {
             'Weiss, Charlotte: Whiskers'
         ];
 
-        const results = query.select(obj => `${obj.OwnerName}: ${obj.Pets}`);
+        const results = query.select((obj) => `${obj.OwnerName}: ${obj.Pets}`);
 
         expect(results).toEqual(expected);
     });

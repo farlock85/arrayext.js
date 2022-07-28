@@ -1,4 +1,4 @@
-import { Person } from './_';
+import type { Person } from './_';
 import { curray } from '../../src/index';
 
 describe('max', () => {
@@ -13,7 +13,7 @@ describe('max', () => {
             { Age: 50, Name: 'Bob' }
         ];
 
-        const result = people.max(m => m.Age);
+        const result = people.max((m) => m.Age);
 
         expect(result).toBe(50);
     });

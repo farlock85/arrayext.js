@@ -20,7 +20,7 @@ describe('groupBy', () => {
             '8': [new Pet({ Age: 8, Name: 'Barley' })]
         };
 
-        const results = pets.groupBy(m => m.Age);
+        const results = pets.groupBy((m) => m.Age);
 
         expect(results).toEqual(result);
     });
@@ -40,8 +40,8 @@ describe('groupBy', () => {
         };
 
         const results = pets.groupBy(
-            m => m.Age,
-            m => m.Name
+            (m) => m.Age,
+            (m) => m.Name
         );
 
         expect(results).toEqual(result);

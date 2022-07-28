@@ -14,8 +14,8 @@ describe('cast ', () => {
 
         const dogs = pets.cast<Dog>();
 
-        expect(dogs[0].Speak).toBeDefined();
-        expect(dogs[0].Speak()).toBe('Bark');
-        expect(dogs[1].Speak).toBeUndefined();
+        expect(dogs[0]!.Speak).toBeDefined();
+        expect(dogs[0]!.Speak()).toBe('Bark');
+        expect(dogs[1]!.Speak).toBeUndefined();
     });
 });

@@ -1,4 +1,4 @@
-import { Person } from './_';
+import type { Person } from './_';
 import { curray } from '../../src/index';
 
 describe('orderBy', () => {
@@ -10,7 +10,7 @@ describe('orderBy', () => {
         const list = [4, 5, 6, 3, 2, 1];
         const expected = [1, 2, 3, 4, 5, 6];
 
-        const result = list.orderBy(m => m);
+        const result = list.orderBy((m) => m);
 
         expect(result[0]).toBe(expected[0]);
         expect(result[1]).toBe(expected[1]);
@@ -33,7 +33,7 @@ describe('orderBy', () => {
             { Age: 50, Name: 'Bob' }
         ];
 
-        const result = people.orderBy(m => m.Age);
+        const result = people.orderBy((m) => m.Age);
 
         expect(result[0]).toEqual(expected[0]);
         expect(result[1]).toEqual(expected[1]);
@@ -52,7 +52,7 @@ describe('orderBy', () => {
             { Age: 25, Name: 'Alice' }
         ];
 
-        const result = people.orderBy(m => m.Age).where(m => m.Age < 50);
+        const result = people.orderBy((m) => m.Age).where((m) => m.Age < 50);
 
         expect(result[0]).toEqual(expected[0]);
     });

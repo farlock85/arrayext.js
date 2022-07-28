@@ -12,7 +12,6 @@ describe('union', () => {
         const expected = [0, 1, 3, 4, 5, 6, 7, 8, 9];
 
         const results = ints1.union(ints2);
-        console.log(results);
 
         expect(results).toEqual(expected);
     });

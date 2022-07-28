@@ -12,7 +12,7 @@ describe('all ', () => {
             new Pet({ Age: 4, Name: 'Boots' }),
             new Pet({ Age: 6, Name: 'Bingo' })
         ];
-        const results = pets.all(pet => pet.Name.startsWith('B'));
+        const results = pets.all((pet) => pet.Name.startsWith('B'));
         expect(results).toBeTruthy();
     });
 
@@ -22,7 +22,7 @@ describe('all ', () => {
             new Pet({ Age: 4, Name: 'Boots' }),
             new Pet({ Age: 6, Name: 'Whiskers' })
         ];
-        const results = pets.all(pet => pet.Name.startsWith('B'));
+        const results = pets.all((pet) => pet.Name.startsWith('B'));
         expect(results).toBeFalsy();
     });
 });

@@ -1,65 +1,15 @@
-'use strict';
-const semver = require('semver');
+// @ts-check
+/* eslint-env node */
 
-function getSupportedTypescriptTarget() {
-    const nodeVersion =
-        process
-            .versions
-            .node;
-
-    if (
-        semver.gt(
-            nodeVersion,
-            '10.0.0',
-        )
-    ) {
-        return 'es2018';
-    } else if (
-        semver.gt(
-            nodeVersion,
-            '7.6.0',
-        )
-    ) {
-        return 'es2017';
-    } else if (
-        semver.gt(
-            nodeVersion,
-            '7.0.0',
-        )
-    ) {
-        return 'es2016';
-    } else if (
-        semver.gt(
-            nodeVersion,
-            '6.0.0',
-        )
-    ) {
-        return 'es2015';
-    } else {
-        return 'es5';
-    }
-}
-
-module.exports = {
-    testURL:
-        'http://localhost',
-    preset:
-        'ts-jest',
-    collectCoverageFrom: [
-        'src/**/*.{t,j}s?(x)',
-        '!src/**/*.d.ts',
-    ],
-    globals: {
-        'ts-jest': {
-            tsConfig: {
-                target: getSupportedTypescriptTarget(),
-            },
-        },
-    },
-    testPathIgnorePatterns: [
-        '_.ts',
-    ],
-    coveragePathIgnorePatterns: [
-        '_.ts',
-    ],
+/**
+ * An object with Jest options.
+ * @type {import('@jest/types').Config.InitialOptions}
+ */
+const options = {
+  preset: 'ts-jest',
+  resolver: 'ts-jest-resolver',
+  testPathIgnorePatterns: ['_.ts', '/types/'],
+  coveragePathIgnorePatterns: ['_.ts', '/types/'],
 };
+
+module.exports = options;

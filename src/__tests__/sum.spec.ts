@@ -1,4 +1,4 @@
-import { Person } from './_';
+import type { Person } from './_';
 import { curray } from '../../src/index';
 
 describe('sum', () => {
@@ -12,7 +12,7 @@ describe('sum', () => {
             { Age: 25, Name: 'Alice' },
             { Age: 50, Name: 'Bob' }
         ];
-        const result = people.sum(m => m.Age);
+        const result = people.sum((m) => m.Age);
 
         expect(result).toBe(90);
     });

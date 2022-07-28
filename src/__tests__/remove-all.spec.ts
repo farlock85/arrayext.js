@@ -26,7 +26,7 @@ describe('removeAll', () => {
             'Triceratops'
         ];
 
-        const result = dinosaurs.removeAll(x => x.endsWith('saurus'));
+        const result = dinosaurs.removeAll((x) => x.endsWith('saurus'));
 
         expect(result).toEqual(lessDinosaurs);
     });

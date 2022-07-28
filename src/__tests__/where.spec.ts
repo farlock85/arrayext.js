@@ -19,7 +19,7 @@ describe('where', () => {
 
         const expected = ['apple', 'mango', 'grape'];
 
-        const result = fruits.where(fruit => fruit.length < 6);
+        const result = fruits.where((fruit) => fruit.length < 6);
 
         expect(result).toEqual(expected);
     });

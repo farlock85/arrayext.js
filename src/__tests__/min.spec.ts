@@ -1,5 +1,5 @@
-import { Pet, Dog, Person } from './_';
 import { curray } from '../../src/index';
+import type { Person } from './_';
 
 describe('min', () => {
     beforeEach(() => {
@@ -13,7 +13,7 @@ describe('min', () => {
             { Age: 50, Name: 'Bob' }
         ];
 
-        const result = people.min(m => m.Age);
+        const result = people.min((m) => m.Age);
 
         expect(result).toBe(15);
     });

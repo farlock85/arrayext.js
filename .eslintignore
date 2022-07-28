@@ -1,5 +1,5 @@
 # Unlinted files and folders.
-# References at https://prettier.io/docs/en/ignore.html#ignoring-files.
+# References at https://eslint.org/docs/user-guide/configuring#eslintignore
 
 # Generated bundles and type definitions.
 dist/

@@ -13,7 +13,7 @@ describe('any ', () => {
             new Pet({ Age: 1, Name: 'Whiskers', Vaccinated: false })
         ];
 
-        const results = pets.any(p => p.Age > 1 && p.Vaccinated === false);
+        const results = pets.any((p) => p.Age > 1 && p.Vaccinated === false);
         expect(results).toBeTruthy();
     });
 
@@ -24,7 +24,7 @@ describe('any ', () => {
             new Pet({ Age: 1, Name: 'Whiskers', Vaccinated: false })
         ];
 
-        const results = pets.any(p => p.Age > 9 && p.Vaccinated === true);
+        const results = pets.any((p) => p.Age > 9 && p.Vaccinated === true);
         expect(results).toBeFalsy();
     });
 

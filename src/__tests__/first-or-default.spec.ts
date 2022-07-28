@@ -29,7 +29,7 @@ describe('firstOrDefault', () => {
             new Pet({ Age: 1, Name: 'Whiskers', Vaccinated: false })
         ];
 
-        const result = pets.firstOrDefault(m => m.Age < 8);
+        const result = pets.firstOrDefault((m) => m.Age < 8);
 
         expect(result.Name).toEqual('Boots');
     });
@@ -41,7 +41,7 @@ describe('firstOrDefault', () => {
             new Pet({ Age: 1, Name: 'Whiskers', Vaccinated: false })
         ];
 
-        const result = pets.firstOrDefault(m => m.Age > 8);
+        const result = pets.firstOrDefault((m) => m.Age > 8);
 
         expect(result).toBeNull();
     });

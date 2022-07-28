@@ -1,4 +1,4 @@
-import { Person } from './_';
+import type { Person } from './_';
 import { curray } from '../../src/index';
 
 describe('orderByDescending', () => {
@@ -10,7 +10,7 @@ describe('orderByDescending', () => {
         const list = [4, 5, 6, 3, 2, 1];
         const expected = [6, 5, 4, 3, 2, 1];
 
-        const result = list.orderByDescending(m => m);
+        const result = list.orderByDescending((m) => m);
 
         expect(result[0]).toBe(expected[0]);
         expect(result[1]).toBe(expected[1]);
@@ -33,7 +33,7 @@ describe('orderByDescending', () => {
             { Age: 15, Name: 'Cathy' }
         ];
 
-        const result = people.orderByDescending(m => m.Age);
+        const result = people.orderByDescending((m) => m.Age);
 
         expect(result[0]).toEqual(expected[0]);
         expect(result[1]).toEqual(expected[1]);

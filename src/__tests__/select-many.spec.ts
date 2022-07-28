@@ -1,4 +1,4 @@
-import { Pet, Dog, PetOwner } from './_';
+import { Pet, PetOwner } from './_';
 import { curray } from '../../src/index';
 
 describe('selectMany', () => {
@@ -24,7 +24,7 @@ describe('selectMany', () => {
 
         const expected = ['Scruffy', 'Sam', 'Walker', 'Sugar', 'Scratches', 'Diesel'];
 
-        const results = petOwners.selectMany(m => m.Pets).select(m => m.Name);
+        const results = petOwners.selectMany((m) => m.Pets).select((m) => m.Name);
 
         expect(results).toEqual(expected);
     });

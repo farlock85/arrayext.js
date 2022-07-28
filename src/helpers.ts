@@ -7,31 +7,32 @@ export const isObj = <T>(x: T): boolean => !!x && typeof x === 'object';
 /**
  * Creates a function that negates the result of the predicate
  */
-export const negate = <T>(predicate: (value: T, index?: number, list?: T[]) => boolean): any => (
-    value: T,
-    index?: number,
-    list?: T[]
-) => !predicate(value, index, list);
+export const negate =
+    <T>(predicate: (value: T, index?: number, list?: T[]) => boolean) =>
+    (value: T, index?: number, list?: T[]) =>
+        !predicate(value, index, list);
 
-export const composeComparers = <T>(
-    previousComparer: (a: T, b: T) => number,
-    currentComparer: (a: T, b: T) => number
-): ((a: T, b: T) => number) => (a: T, b: T) => previousComparer(a, b) || currentComparer(a, b);
+export const composeComparers =
+    <T>(
+        previousComparer: (a: T, b: T) => number,
+        currentComparer: (a: T, b: T) => number
+    ): ((a: T, b: T) => number) =>
+    (a: T, b: T) =>
+        previousComparer(a, b) || currentComparer(a, b);
 
-export const keyComparer = <T>(
-    keySelector: (key: T) => any,
-    descending?: boolean
-): ((a: T, b: T) => number) => (a: T, b: T) => {
-    const sortKeyA = keySelector(a);
-    const sortKeyB = keySelector(b);
-    if (sortKeyA > sortKeyB) {
-        return !descending ? 1 : -1;
-    } else if (sortKeyA < sortKeyB) {
-        return !descending ? -1 : 1;
-    } else {
-        return 0;
-    }
-};
+export const keyComparer =
+    <T>(keySelector: (key: T) => string, descending?: boolean): ((a: T, b: T) => number) =>
+    (a: T, b: T) => {
+        const sortKeyA = keySelector(a);
+        const sortKeyB = keySelector(b);
+        if (sortKeyA > sortKeyB) {
+            return !descending ? 1 : -1;
+        } else if (sortKeyA < sortKeyB) {
+            return !descending ? -1 : 1;
+        } else {
+            return 0;
+        }
+    };
 
 /**
  * Represents a sorted sequence. The methods of this class are implemented by using deferred execution.
@@ -55,7 +56,7 @@ export class OrderedArray<T> extends Array<T> {
      * Performs a subsequent ordering of the elements in a sequence in ascending order according to a key.
      * @override
      */
-    thenBy(keySelector: (key: T) => any): OrderedArray<T> {
+    thenBy(keySelector: (key: T) => string): OrderedArray<T> {
         return new OrderedArray(
             this,
             composeComparers(this._comparer, keyComparer(keySelector, false))
@@ -66,7 +67,7 @@ export class OrderedArray<T> extends Array<T> {
      * Performs a subsequent ordering of the elements in a sequence in descending order, according to a key.
      * @override
      */
-    thenByDescending(keySelector: (key: T) => any): OrderedArray<T> {
+    thenByDescending(keySelector: (key: T) => string): OrderedArray<T> {
         return new OrderedArray(
             this,
             composeComparers(this._comparer, keyComparer(keySelector, true))

@@ -19,7 +19,7 @@ describe('returns an array with only distinct items in an array by a predicate',
             new Pet({ Age: 8, Name: 'Barley' })
         ];
 
-        const results = pets.distinctBy(m => m.Age);
+        const results = pets.distinctBy((m) => m.Age);
 
         expect(results).toEqual(expected);
     });
@@ -27,7 +27,7 @@ describe('returns an array with only distinct items in an array by a predicate',
     it('returns an array with only distinct primitives in an array', () => {
         const ages: number[] = [21, 46, 46, 55, 17, 21, 55, 55];
 
-        const results = ages.distinctBy(m => m);
+        const results = ages.distinctBy((m) => m);
 
         expect(results).toEqual([17, 21, 46, 55]);
     });

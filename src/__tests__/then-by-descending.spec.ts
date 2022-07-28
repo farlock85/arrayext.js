@@ -30,7 +30,7 @@ describe('thenByDescending', () => {
             'passionfruit'
         ];
 
-        const results = fruits.orderBy(m => m.length).thenByDescending(m => m);
+        const results = fruits.orderBy((m) => m.length).thenByDescending((m) => m);
 
         expect(results[0]).toBe(expected[0]);
         expect(results[1]).toBe(expected[1]);

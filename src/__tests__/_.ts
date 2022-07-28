@@ -12,8 +12,8 @@ interface IPerson {
 interface IPet {
     Name: string;
     Age: number;
-    Owner?: Person;
-    Vaccinated?: boolean;
+    Owner?: Person | undefined;
+    Vaccinated?: boolean | undefined;
 }
 
 interface IProduct {
@@ -46,8 +46,8 @@ export class Person implements IPerson {
 export class Pet implements IPet {
     public Name: string;
     public Age: number;
-    public Owner?: Person;
-    public Vaccinated?: boolean;
+    public Owner?: Person | undefined;
+    public Vaccinated?: boolean | undefined;
 
     constructor(pet: IPet) {
         this.Name = pet.Name;

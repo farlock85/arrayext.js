@@ -1,22 +1,74 @@
-import sourcemaps from 'rollup-plugin-sourcemaps';
-import nodeResolve from 'rollup-plugin-node-resolve';
-import nodeGlobals from 'rollup-plugin-node-globals';
-import nodeBuiltins from 'rollup-plugin-node-builtins';
-import commonjs from 'rollup-plugin-commonjs';
+// @ts-check
+
 import { terser } from 'rollup-plugin-terser';
+import typescript2 from 'rollup-plugin-typescript2';
+
 import pkg from './package.json';
 
-export default {
-    input: 'es/index.js',
-    output: {
-        name: pkg.name,
-        file: 'dist/bundle.js',
-        format: 'umd',
-        exports: 'named',
-        sourcemap: true,
-        amd: {
-            id: pkg.name,
-        },
-    },
-    plugins: [sourcemaps(), nodeResolve(), nodeGlobals(), nodeBuiltins(), commonjs(), terser()],
+/**
+ * Comment with library information to be appended in the generated bundles.
+ */
+const banner = `/*!
+ * ${pkg.name} v${pkg.version}
+ * (c) ${pkg.author.name}
+ * Released under the ${pkg.license} License.
+ */
+`;
+
+/**
+ * Creates an output options object for Rollup.js.
+ * @param {import('rollup').OutputOptions} options
+ * @returns {import('rollup').OutputOptions}
+ */
+function createOutputOptions(options) {
+  return {
+    banner,
+    name: 'curray',
+    exports: 'named',
+    sourcemap: true,
+    ...options,
+  };
+}
+
+/**
+ * @type {import('rollup').RollupOptions}
+ */
+const options = {
+  input: './src/index.ts',
+  output: [
+    createOutputOptions({
+      file: './dist/index.js',
+      format: 'commonjs',
+    }),
+    createOutputOptions({
+      file: './dist/index.cjs',
+      format: 'commonjs',
+    }),
+    createOutputOptions({
+      file: './dist/index.mjs',
+      format: 'esm',
+    }),
+    createOutputOptions({
+      file: './dist/index.esm.js',
+      format: 'esm',
+    }),
+    createOutputOptions({
+      file: './dist/index.umd.js',
+      format: 'umd',
+    }),
+    createOutputOptions({
+      file: './dist/index.umd.min.js',
+      format: 'umd',
+      plugins: [terser()],
+    }),
+  ],
+  plugins: [
+    typescript2({
+      clean: true,
+      useTsconfigDeclarationDir: true,
+      tsconfig: './tsconfig.bundle.json',
+    }),
+  ],
 };
+
+export default options;
