@@ -1,6 +1,6 @@
 {
     "name": "curray",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "description": "Curray is an extension library for the native JavaScript Array object.",
     "cdn": "dist/index.umd.js",
     "main": "dist/index.js",

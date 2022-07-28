@@ -56,7 +56,7 @@ export class OrderedArray<T> extends Array<T> {
      * Performs a subsequent ordering of the elements in a sequence in ascending order according to a key.
      * @override
      */
-    thenBy(keySelector: (key: T) => string): OrderedArray<T> {
+    thenBy(keySelector: (key: T) => any): OrderedArray<T> {
         return new OrderedArray(
             this,
             composeComparers(this._comparer, keyComparer(keySelector, false))
@@ -67,7 +67,7 @@ export class OrderedArray<T> extends Array<T> {
      * Performs a subsequent ordering of the elements in a sequence in descending order, according to a key.
      * @override
      */
-    thenByDescending(keySelector: (key: T) => string): OrderedArray<T> {
+    thenByDescending(keySelector: (key: T) => any): OrderedArray<T> {
         return new OrderedArray(
             this,
             composeComparers(this._comparer, keyComparer(keySelector, true))
