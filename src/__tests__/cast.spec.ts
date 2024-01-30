@@ -1,11 +1,7 @@
 import { Pet, Dog } from './_';
-import { curray } from '../../src/index';
+import '../index';
 
 describe('cast ', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('casts an array to another type', () => {
         const pets: Pet[] = [
             new Dog({ Age: 8, Name: 'Barley', Vaccinated: true }),

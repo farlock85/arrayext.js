@@ -1,11 +1,7 @@
 import { Pet } from './_';
-import { curray } from '../../src/index';
+import '../index';
 
 describe('returns an array with only distinct items in an array by a predicate', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns the array if the array is not empty', () => {
         const pets: Pet[] = [
             new Pet({ Age: 1, Name: 'Whiskers' }),

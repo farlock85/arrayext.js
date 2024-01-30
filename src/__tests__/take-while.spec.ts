@@ -1,10 +1,6 @@
-import { curray } from '../../src/index';
+import '../index';
 
 describe('takeWhile', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns the first element in an array', () => {
         const fruits: string[] = ['apple', 'banana', 'mango', 'orange', 'passionfruit', 'grape'];
         const expected = ['apple', 'banana', 'mango'];

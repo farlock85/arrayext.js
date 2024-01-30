@@ -1,10 +1,6 @@
-import { curray } from '../../src/index';
+import '../index';
 
 describe('where', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns the elements of an array filtered based on a predicate', () => {
         const fruits = [
             'apple',

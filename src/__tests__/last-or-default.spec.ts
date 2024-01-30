@@ -1,11 +1,7 @@
 import { Pet } from './_';
-import { curray } from '../../src/index';
+import '../index';
 
 describe('lastOrDefault', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns the last element in an array', () => {
         const list: string[] = ['hey', 'hola', 'que', 'tal'];
 
@@ -31,7 +27,7 @@ describe('lastOrDefault', () => {
 
         const result = pets.lastOrDefault((m) => m.Age < 8);
 
-        expect(result.Name).toEqual('Whiskers');
+        expect(result?.Name).toEqual('Whiskers');
     });
 
     it('returns null when the array is empty with a predicate', () => {

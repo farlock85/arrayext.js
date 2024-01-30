@@ -1,11 +1,7 @@
-import { curray } from '../../src/index';
+import '../index';
 import type { Person } from './_';
 
 describe('min', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns the smallest number of an array with a predicate', () => {
         const people: Person[] = [
             { Age: 15, Name: 'Cathy' },

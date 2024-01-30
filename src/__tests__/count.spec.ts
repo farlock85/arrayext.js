@@ -1,10 +1,6 @@
-import { curray } from '../../src/index';
+import '../index';
 
 describe('count ', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns the amount of numbers in a plain array', () => {
         const fruits: string[] = ['apple', 'banana', 'mango', 'orange', 'passionfruit', 'grape'];
 

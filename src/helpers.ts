@@ -46,7 +46,10 @@ export class OrderedArray<T> extends Array<T> {
     }
 
     /* istanbul ignore next */
-    constructor(elements: T[], private readonly _comparer: (a: T, b: T) => number) {
+    constructor(
+        elements: T[],
+        private readonly _comparer: (a: T, b: T) => number
+    ) {
         super(...elements);
         Object.setPrototypeOf(this, OrderedArray.prototype);
         this.sort(this._comparer);

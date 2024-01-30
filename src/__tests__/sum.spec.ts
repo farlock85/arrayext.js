@@ -1,11 +1,7 @@
 import type { Person } from './_';
-import { curray } from '../../src/index';
+import '../index';
 
 describe('sum', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('sums the numbers of a predicate', () => {
         const people: Person[] = [
             { Age: 15, Name: 'Cathy' },

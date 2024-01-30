@@ -1,10 +1,6 @@
-import { curray } from '../../src/index';
+import '../index';
 
 describe('thenBy', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns a sorted array by a predicate', () => {
         const fruits: string[] = [
             'grape',

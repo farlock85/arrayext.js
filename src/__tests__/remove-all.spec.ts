@@ -1,10 +1,6 @@
-import { curray } from '../../src/index';
+import '../index';
 
 describe('removeAll', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns an array with the elements removed', () => {
         const dinosaurs: string[] = [
             'Compsognathus',

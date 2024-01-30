@@ -1,10 +1,6 @@
-import { curray } from '../../src/index';
+import '../index';
 
 describe('contains ', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns true when an element is contained in an array', () => {
         const fruits: string[] = ['apple', 'banana', 'mango', 'orange', 'passionfruit', 'grape'];
 

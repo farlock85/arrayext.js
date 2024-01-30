@@ -1,11 +1,7 @@
-import { curray } from '../../src/index';
+import '../index';
 import { isObj } from '../../src/helpers';
 
 describe('Helpers ', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     describe('isObj', () => {
         it('returns true when the passed argument is an object', () => {
             const realObject = {};

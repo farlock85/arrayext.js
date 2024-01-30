@@ -1,10 +1,6 @@
-import { curray } from '../../src/index';
+import '../index';
 
 describe('addRange', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns an array with the newly added items from another array', () => {
         const list: string[] = [];
         list.addRange(['hey', "what's", 'up']);

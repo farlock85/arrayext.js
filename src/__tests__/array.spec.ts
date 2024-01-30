@@ -1,10 +1,6 @@
-import { curray } from '../../src/index';
+import '../index';
 
 describe('array ', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('makes sure native array functions are still working on an OrderedArray', () => {
         const list: number[] = [3, 1, 2];
 

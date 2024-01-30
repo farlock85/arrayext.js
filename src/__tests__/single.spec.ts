@@ -1,10 +1,6 @@
-import { curray } from '../../src/index';
+import '../index';
 
 describe('single ', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns the first element in an array', () => {
         const list: string[] = ['hey'];
 

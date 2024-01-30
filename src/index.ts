@@ -1,7 +1,5 @@
 import { keyComparer, negate, OrderedArray } from './helpers';
 
-export const curray = () => null;
-
 declare global {
     export interface Array<T> {
         addRange<T>(elements: T[]): void;
@@ -24,14 +22,14 @@ declare global {
         defaultIfEmpty(defaultValue?: T): T[];
         distinctBy(keySelector: (key: T) => string | number): T[];
         elementAt(index: number): T;
-        elementAtOrDefault(index: number): T;
+        elementAtOrDefault(index: number): T | null;
         except(source: T[]): T[];
         first(): T;
         first(predicate: (value: T, index?: number, list?: T[]) => boolean): T;
         first(predicate?: (value?: T, index?: number, list?: T[]) => boolean): T;
-        firstOrDefault(): T;
-        firstOrDefault(predicate: (value: T, index?: number, list?: T[]) => boolean): T;
-        firstOrDefault(predicate?: (value?: T, index?: number, list?: T[]) => boolean): T;
+        firstOrDefault(): T | null;
+        firstOrDefault(predicate: (value: T, index?: number, list?: T[]) => boolean): T | null;
+        firstOrDefault(predicate?: (value?: T, index?: number, list?: T[]) => boolean): T | null;
         groupBy<TResult = T>(
             grouper: (key: T) => string | number,
             mapper?: (element: T) => TResult
@@ -48,9 +46,9 @@ declare global {
         last(): T;
         last(predicate: (value: T, index?: number, list?: T[]) => boolean): T;
         last(predicate?: (value?: T, index?: number, list?: T[]) => boolean): T;
-        lastOrDefault(): T;
-        lastOrDefault(predicate: (value: T, index?: number, list?: T[]) => boolean): T;
-        lastOrDefault(predicate?: (value?: T, index?: number, list?: T[]) => boolean): T;
+        lastOrDefault(): T | null;
+        lastOrDefault(predicate: (value: T, index?: number, list?: T[]) => boolean): T | null;
+        lastOrDefault(predicate?: (value?: T, index?: number, list?: T[]) => boolean): T | null;
         max(): number;
         max(selector: (value: T, index?: number, array?: T[]) => number): number;
         max(selector?: (value?: T, index?: number, array?: T[]) => number): number;
@@ -65,7 +63,7 @@ declare global {
         selectMany<TOut extends any[]>(selector: (element: T, index: number) => TOut): TOut;
         sequenceEqual(list: T[]): boolean;
         single(predicate?: (value?: T, index?: number, list?: T[]) => boolean): T;
-        singleOrDefault(predicate?: (value?: T, index?: number, list?: T[]) => boolean): T;
+        singleOrDefault(predicate?: (value?: T, index?: number, list?: T[]) => boolean): T | null;
         skip(amount: number): T[];
         skipWhile(predicate: (value: T, index?: number, list?: T[]) => boolean): T[];
         sum(): number;
@@ -185,7 +183,7 @@ Array.prototype.elementAt = function <T>(index: number): T {
 /**
  * Returns the element at a specified index in a sequence or a default value if the index is out of range.
  */
-Array.prototype.elementAtOrDefault = function <T>(index: number): T {
+Array.prototype.elementAtOrDefault = function <T>(index: number): T | null {
     return this.elementAt(index) !== undefined && this.elementAt(index);
 };
 
@@ -214,7 +212,7 @@ Array.prototype.first = function <T>(
  */
 Array.prototype.firstOrDefault = function <T>(
     predicate?: (value?: T, index?: number, list?: T[]) => boolean
-): T {
+): T | null {
     return this.count(predicate) ? this.first(predicate) : null;
 };
 
@@ -283,7 +281,7 @@ Array.prototype.last = function <T>(
  */
 Array.prototype.lastOrDefault = function <T>(
     predicate?: (value?: T, index?: number, list?: T[]) => boolean
-): T {
+): T | null {
     return this.count(predicate) ? this.last(predicate) : null;
 };
 
@@ -406,7 +404,7 @@ Array.prototype.single = function <T>(
  */
 Array.prototype.singleOrDefault = function <T>(
     predicate?: (value?: T, index?: number, list?: T[]) => boolean
-): T {
+): T | null {
     return this.count(predicate) ? this.single(predicate) : null;
 };
 

@@ -1,10 +1,6 @@
-import { curray } from '../../src/index';
+import '../index';
 
 describe('zip', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns the elements of an array filtered based on a predicate', () => {
         const numbers: number[] = [1, 2, 3, 4];
         const words: string[] = ['one', 'two', 'three'];

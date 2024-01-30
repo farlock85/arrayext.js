@@ -64,7 +64,10 @@ export class Dog extends Pet {
 }
 
 export class PetOwner {
-    constructor(public Name: string, public Pets: Pet[]) {}
+    constructor(
+        public Name: string,
+        public Pets: Pet[]
+    ) {}
 }
 
 export class Product implements IProduct {

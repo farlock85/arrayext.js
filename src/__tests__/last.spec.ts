@@ -1,10 +1,6 @@
-import { curray } from '../../src/index';
+import '../index';
 
 describe('last ', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns the last element in an array', () => {
         const list: string[] = ['hey', 'hola', 'que', 'tal'];
 

@@ -1,11 +1,7 @@
 import { Pet, Dog } from './_';
-import { curray } from '../../src/index';
+import '../index';
 
 describe('ofType', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns an array wit the elements that are of a specific type', () => {
         const anyArray = [
             'dogs',

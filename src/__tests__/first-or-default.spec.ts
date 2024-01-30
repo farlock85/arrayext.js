@@ -1,11 +1,7 @@
 import { Pet } from './_';
-import { curray } from '../../src/index';
+import '../index';
 
 describe('firstOrDefault', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns the first element in an array', () => {
         const list: string[] = ['hey', 'hola', 'que', 'tal'];
 
@@ -31,7 +27,7 @@ describe('firstOrDefault', () => {
 
         const result = pets.firstOrDefault((m) => m.Age < 8);
 
-        expect(result.Name).toEqual('Boots');
+        expect(result?.Name).toEqual('Boots');
     });
 
     it('returns null when the array is empty with a predicate', () => {

@@ -1,11 +1,7 @@
 import type { Person } from './_';
-import { curray } from '../../src/index';
+import '../index';
 
 describe('orderBy', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns a sorted array', () => {
         const list = [4, 5, 6, 3, 2, 1];
         const expected = [1, 2, 3, 4, 5, 6];

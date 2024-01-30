@@ -1,10 +1,6 @@
-import { curray } from '../../src/index';
+import '../index';
 
 describe('elementAtOrDefault ', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns the elements in the array of the requested position', () => {
         const list: string[] = ['hey', 'hola', 'que', 'tal'];
 

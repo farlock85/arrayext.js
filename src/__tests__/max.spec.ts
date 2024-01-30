@@ -1,11 +1,7 @@
 import type { Person } from './_';
-import { curray } from '../../src/index';
+import '../index';
 
 describe('max', () => {
-    beforeEach(() => {
-        curray();
-    });
-
     it('returns the largest number in an array', () => {
         const people: Person[] = [
             { Age: 15, Name: 'Cathy' },
