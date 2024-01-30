@@ -1,14 +1,13 @@
-#root = true
+# Settings for editors and IDEs.
+# References at https://editorconfig.org/.
 
+root = true
+
+# Settings for any file.
 [*]
-indent_style = space
-end_of_line = lf
 charset = utf-8
-trim_trailing_whitespace = true
+end_of_line = lf
+indent_size = 2
+indent_style = space
 insert_final_newline = true
-max_line_length = 100
-indent_size = 4
-quote_type = single
-
-[*.md]
-trim_trailing_whitespace = false
+trim_trailing_whitespace = true

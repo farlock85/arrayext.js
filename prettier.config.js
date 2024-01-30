@@ -9,7 +9,7 @@ const options = {
   bracketSameLine: true,
   quoteProps: 'consistent',
   singleQuote: true,
-  trailingComma: 'none',
+  trailingComma: 'all',
 };
 
 module.exports = options;

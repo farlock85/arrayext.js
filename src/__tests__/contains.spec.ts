@@ -1,19 +1,33 @@
 import '../index';
 
 describe('contains ', () => {
-    it('returns true when an element is contained in an array', () => {
-        const fruits: string[] = ['apple', 'banana', 'mango', 'orange', 'passionfruit', 'grape'];
+  it('returns true when an element is contained in an array', () => {
+    const fruits: string[] = [
+      'apple',
+      'banana',
+      'mango',
+      'orange',
+      'passionfruit',
+      'grape',
+    ];
 
-        const results = fruits.contains('mango');
+    const results = fruits.contains('mango');
 
-        expect(results).toBeTruthy();
-    });
+    expect(results).toBeTruthy();
+  });
 
-    it('returns false when an element is not contained in an array', () => {
-        const fruits: string[] = ['apple', 'banana', 'mango', 'orange', 'passionfruit', 'grape'];
+  it('returns false when an element is not contained in an array', () => {
+    const fruits: string[] = [
+      'apple',
+      'banana',
+      'mango',
+      'orange',
+      'passionfruit',
+      'grape',
+    ];
 
-        const results = fruits.contains('pear');
+    const results = fruits.contains('pear');
 
-        expect(results).toBeFalsy();
-    });
+    expect(results).toBeFalsy();
+  });
 });

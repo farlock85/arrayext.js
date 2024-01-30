@@ -1,17 +1,16 @@
 // @ts-check
 
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 import typescript2 from 'rollup-plugin-typescript2';
-
-import pkg from './package.json';
+import packageJSON from './package.json' assert { type: 'json' };
 
 /**
  * Comment with library information to be appended in the generated bundles.
  */
 const banner = `/*!
- * ${pkg.name} v${pkg.version}
- * (c) ${pkg.author.name}
- * Released under the ${pkg.license} License.
+ * ${packageJSON.name} v${packageJSON.version}
+ * (c) ${packageJSON.author.name}
+ * Released under the ${packageJSON.license} License.
  */
 `;
 

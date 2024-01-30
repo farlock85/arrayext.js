@@ -1,27 +1,27 @@
 import '../index';
 
 describe('single ', () => {
-    it('returns the first element in an array', () => {
-        const list: string[] = ['hey'];
+  it('returns the first element in an array', () => {
+    const list: string[] = ['hey'];
 
-        const result = list.single();
+    const result = list.single();
 
-        expect(result).toEqual('hey');
-    });
+    expect(result).toEqual('hey');
+  });
 
-    it('throws an error when the array is empty', () => {
-        const list: string[] = [];
+  it('throws an error when the array is empty', () => {
+    const list: string[] = [];
 
-        expect(() => list.single()).toThrowError(
-            'InvalidOperationException: The collection does not contain exactly one element.'
-        );
-    });
+    expect(() => list.single()).toThrowError(
+      'InvalidOperationException: The collection does not contain exactly one element.',
+    );
+  });
 
-    it('throws an error when the array has more than a single element', () => {
-        const list: string[] = ['hey', 'you'];
+  it('throws an error when the array has more than a single element', () => {
+    const list: string[] = ['hey', 'you'];
 
-        expect(() => list.single()).toThrowError(
-            'InvalidOperationException: The collection does not contain exactly one element.'
-        );
-    });
+    expect(() => list.single()).toThrowError(
+      'InvalidOperationException: The collection does not contain exactly one element.',
+    );
+  });
 });
